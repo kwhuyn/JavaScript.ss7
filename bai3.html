@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let players = [];
+
+        const POSITION_MAP = { "1": "Thủ môn", "2": "Hậu vệ", "3": "Tiền vệ", "4": "Tiền đạo" };
+
+        function isIdExists(id) {
+            for (let player of players) {
+                if (player.split("-")[0] === id) 
+                return true;
+            }
+            return false;
+        }
+
+        function pushPlayer(id, name, position) {
+            players.push(`${id}-${name}-${position}`);
+        }
+
+        function printTeamRoster() {
+            console.log(`\n--- DANH SÁCH ĐỘI BÓNG (${players.length} cầu thủ) ---`);
+            players.forEach((player, index) => {
+                let [id, name, pos] = player.split("-");
+                console.log(`${index + 1}. Mã: ${id} | Tên: ${name} | Vị trí: ${pos}`);
+            });
+        }
+
+        function main() {
+            let n = parseInt(prompt("Có bao nhiêu cầu thủ cần nhập vào đội bóng?"));
+            if (isNaN(n) || n <= 0)
+             return;
+
+            for (let i = 0; i < n; i++) {
+                let id, name, posChoice;
+
+                while (true) {
+                    id = prompt(`Nhập mã cầu thủ ${i + 1}:`);
+                    if (id && !isIdExists(id))
+                     break;
+                    alert("Mã không hợp lệ hoặc đã tồn tại!");
+                }
+
+                while (true) {
+                    name = prompt(`Nhập tên cầu thủ ${id}:`);
+                    if (name.trim() !== "") 
+                    break;
+                }
+
+                while (true) {
+                    posChoice = prompt(`Vị trí cho ${name} (1: Thủ môn, 2: Hậu vệ, 3: Tiền vệ, 4: Tiền đạo):`);
+                    if (POSITION_MAP[posChoice]) 
+                    break;
+                }
+
+                pushPlayer(id, name, POSITION_MAP[posChoice]);
+            }
+
+            printTeamRoster();
+        }
+
+        main();
+
+    </script>
+</body>
+</html>

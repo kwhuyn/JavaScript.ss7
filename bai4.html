@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const players = [
+        "P001-Lionel Messi-Tiền đạo",
+        "P002-Virgil van Dijk-Hậu vệ",
+        "P003-Alisson Becker-Thủ môn",
+        "P004-Kevin De Bruyne-Tiền vệ",
+        "P005-Erling Haaland-Tiền đạo"
+    ];
+
+    function printTeamRoster() {
+        console.log("--- DANH SÁCH ĐỘI BÓNG ---");
+        for (let i = 0; i < players.length; i++) {
+            let parts = players[i].split("-");
+            console.log(`${i + 1}. ${parts[0]} | ${parts[1]} | ${parts[2]}`);
+        }
+    }
+
+    function countPlayerByPostion() {
+        let counts = {};
+        for (let player of players) {
+            let pos = player.split("-")[2];
+            counts[pos] = (counts[pos] || 0) + 1;
+        }
+        return counts;
+    }
+
+    function hasGoalkeeper() {
+        for (let player of players) {
+            if (player.split("-")[2] === "Thủ môn") return true;
+        }
+        return false;
+    }
+
+    printTeamRoster();
+
+    console.log("\nThống kê vị trí:");
+    let stats = countPlayerByPostion();
+    for (let pos in stats) {
+        console.log(`${pos}: ${stats[pos]}`);
+    }
+
+    console.log("\nCó thủ môn không:", hasGoalkeeper());
+
+    </script>
+</body>
+</html>

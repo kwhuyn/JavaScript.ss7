@@ -1,0 +1,99 @@
+  // p1.Tính tổng các số trong mảng sau:
+        // const firstArray = [10,30,40,20,90,100];
+        // let total_1 = 0;
+        // for ( let i = 0; i < firstArray.length; i++){
+        //     total_1 += firstArray[i];
+        // }
+        // const secondArray = [40,30,40,30,90,800];
+        //  let total_2 = 0;
+        // for ( let i = 0; i < secondArray.length; i++){
+        //     total_2 += secondArray[i];
+        // }
+        // const thirdArray = [10,30,40,20,900,1000];
+        //  let total_3 = 0;
+        // for ( let i = 0; i < thirdArray.length; i++){
+        //     total_3 += thirdArray[i];
+        // }
+        // console.log("total_1",total_1);
+        // console.log("total_2",total_2);
+        // console.log("total_3",total_3);
+
+
+
+
+        //p2.Tính tổng các số trong mảng sau:
+        const firstArray = [10,30,40,20,90,100];
+        //khai báo hàm
+        //khi xây dựng hàm, cần phải xác định các thông tin sau:
+        //1. tên hàm
+        //2. số lượng tham số và đối số
+        //3. logic xử lý
+        //4. kết quả trả về
+
+        //function declaration
+        function sum(firstNumber, secondNumber) {
+            console.log("hàm tính tổng:",firstNumber + secondNumber);
+            return firstNumber + secondNumber;
+        }
+        //để hàm đc thực thi thì cần phải đc gọi
+        sum(10,30,40);
+        //lấy kq trả về từ hàm
+        const result = sum(10,20);
+        console.log("Result:",result);
+
+         function sum(firstNumber, secondNumber) {
+           
+            return firstNumber - secondNumber;
+         
+         function sumArray(array) {
+            let total = 0;
+            
+         }
+            for ( let i = 0; i < array.length; i++){
+            total  += array[i];
+            
+         }
+         return total;
+         }
+         const totalSumArray = sumArray(firstArray);
+         const totalSumSecondArray = sumArray(secondArray);
+
+         console.log("totalSumArray: ",totalSumArray);
+         console.log("totalSumSecondArray: ",totalSumSecondArray);
+
+         //function expression
+         const expressFunc = function (firstNumber, secondNumber){
+            return firstNumber + secondNumber ; 
+
+         };
+         const result_1 = expressFunc(10,20);
+         console.log("result_1: ",result_1);
+
+         //arrow fuction
+        //  const getName = (userName) => {
+        //     return `tên của tôi là: ${userName}`;
+
+        //     console.log(getName("Nguyễn Văn A"));
+            
+        //  };
+        // Arrow function ko có ngữ cánh (dùng từ khóa this ) và ko có object constructor
+              const getName = (userName) => `tên của tôi là: ${userName}`;
+              console.log(getName("Nguyễn Văn A"));
+
+        //  Quy tắc commonet theo chuẩn của JSDoc
+        
+       /**
+         * @description Hàm định dạng chuỗi họ và tên
+         * @param {*} firstName Họ và tên đệm
+         * @param {*} lastName Tên 
+         * @returns Họ và tên đầy đủ
+         * @author Nguyễn Thị Khánh Huyền (6/2/2026)
+         * @modified: Nguyễn Văn A (04/09/2027)
+         */
+        const getFullName = (firstName, lastName)=>
+        `fullName: ${firstName} ${lastName}`;
+
+
+        getFullName("Nguyễn Văn","A")
+         
+         
